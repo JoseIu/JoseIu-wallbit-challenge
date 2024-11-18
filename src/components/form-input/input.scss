@@ -1,0 +1,47 @@
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+.row__label {
+  font-weight: 300;
+}
+.row__container {
+  position: relative;
+  outline: 0.125rem solid #d1d5db;
+  padding: 0 1rem;
+  border-radius: 0.3125rem;
+  background-color: var(--primary-color-light);
+}
+.row__container:focus-within {
+  outline: 0.125rem solid var(--bg-color-dark);
+}
+.row__error {
+  outline: 0.125rem solid rgb(235, 80, 80);
+  color: rgb(235, 80, 80);
+}
+.row__error:focus-within {
+  outline: 0.225rem solid rgb(235, 80, 80);
+}
+
+.row__input {
+  width: 100%;
+  outline: 0.125rem solid transparent;
+  padding: 1rem;
+  font-size: 0.8em;
+  background-color: transparent;
+}
+.row__icon {
+  position: absolute;
+  top: 30%;
+  right: 1rem;
+  width: 2rem;
+  color: var(--error-color);
+}
+.row__message {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: rgb(235, 80, 80);
+}

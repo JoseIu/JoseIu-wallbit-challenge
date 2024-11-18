@@ -1,0 +1,35 @@
+.cart {
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  &__title {
+    font-size: 1.5em;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  &__icon {
+    width: 1.875rem;
+  }
+  &__total {
+    padding: 1rem;
+    margin-left: auto;
+    border-radius: 0.3rem;
+    text-align: center;
+
+    background-color: var(--primary-color-light);
+    color: var(--bg-color-dark);
+    border: 0.0625rem solid var(--border-color);
+  }
+  &__products {
+    font-weight: 300;
+    border-radius: 1rem;
+    color: var(--seconday-color);
+    font-size: 0.9375em;
+  }
+}

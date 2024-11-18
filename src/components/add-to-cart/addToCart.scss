@@ -1,0 +1,50 @@
+.add-cart {
+  padding: 1.5rem;
+  max-height: 26rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+  &__subtitle {
+    font-size: 0.875em;
+    color: var(--seconday-color);
+  }
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+
+  &__input {
+    border-radius: 0.3rem;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    background-color: var(--primary-color-light);
+  }
+  &__submit {
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    background-color: var(--bg-color-dark);
+    color: var(--primary-color-light);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+
+    &:focus {
+      outline: 3px solid #ff00ff;
+    }
+
+    &-icon {
+      width: 1.5rem;
+    }
+  }
+}

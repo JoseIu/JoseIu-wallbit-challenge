@@ -1,0 +1,23 @@
+.shop {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  &__container {
+    display: grid;
+    gap: 2rem;
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 600;
+  &__icon {
+    max-width: 3.625rem;
+  }
+}
