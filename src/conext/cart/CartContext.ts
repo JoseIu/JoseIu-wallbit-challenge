@@ -6,6 +6,7 @@ interface CartContextProps {
   cartCreatedAt: Date | null;
   addToCart: (product: ProductInCart) => void;
   removeProduct: (id: number) => void;
+  clearCart: () => void;
   getTotalPrice: () => number;
   getTotalProducts: () => number;
 }

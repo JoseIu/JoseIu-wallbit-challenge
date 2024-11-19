@@ -55,6 +55,9 @@ export const CartProvider = ({ children }: Props) => {
     removeProductStorage(id);
   };
 
+  const clearCart = () => {
+    dispatch({ type: 'CLEAR_CART' });
+  };
   const getTotalPrice = (): number => {
     const producst = state.products;
     const total = producst.reduce((total, product) => product.quantity * product.product.price + total, 0);
@@ -68,7 +71,9 @@ export const CartProvider = ({ children }: Props) => {
     return total;
   };
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeProduct, getTotalPrice, getTotalProducts }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeProduct, getTotalPrice, getTotalProducts, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -19,6 +19,15 @@
     align-items: center;
     gap: 0.3rem;
   }
+  &__clear {
+    max-width: 8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.875rem;
+    color: red;
+    cursor: pointer;
+    border: 0.0625rem solid red;
+  }
   &__create-at {
     font-size: 0.875rem;
     color: var(--seconday-color);
@@ -31,7 +40,6 @@
   }
   &__total {
     padding: 1rem;
-    margin-left: auto;
     border-radius: 0.3rem;
     text-align: center;
 
@@ -49,5 +57,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 }

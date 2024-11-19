@@ -8,7 +8,7 @@ import { ProductsTable } from '../products-table/ProductsTable';
 import './cart.scss';
 
 export const Cart = () => {
-  const { products, cartCreatedAt, getTotalPrice, getTotalProducts } = useCart();
+  const { products, cartCreatedAt, getTotalPrice, getTotalProducts, clearCart } = useCart();
   const { search, sortBy, setOrder, setSearch } = useFilters();
 
   const [pagination, setPagination] = useState({ page: 1, itemsPerPage: 5 });
@@ -44,9 +44,12 @@ export const Cart = () => {
         <>
           <ProductsTable products={productsPaginated} />
           <div className="cart__sumary">
-            <CartPagination page={pagination.page} totalPages={totalPages} setPage={setPage} />
             <span className="cart__total">TOTAL: {currencyFormat(getTotalPrice())}</span>
+            <CartPagination page={pagination.page} totalPages={totalPages} setPage={setPage} />
           </div>
+          <button className="cart__clear" onClick={() => clearCart()}>
+            Vaciar carrito
+          </button>
         </>
       )}
     </section>
