@@ -4,6 +4,8 @@ import { CartState } from './CartProvider';
 type CartAction =
   | { type: 'ADD_TO_CART'; payload: ProductInCart }
   | { type: 'REMOVE_FROM_CART'; payload: { id: number } }
+  | { type: 'CART_CREATE_AT' }
+  | { type: 'REMOVE_CART_CREATE_AT' }
   | { type: 'CLEAR_CART' };
 
 export const cartReducer = (state: CartState, action: CartAction): CartState => {
@@ -33,6 +35,16 @@ export const cartReducer = (state: CartState, action: CartAction): CartState => 
       return {
         ...state,
         products: state.products.filter((product) => product.product.id !== action.payload.id),
+      };
+    case 'CART_CREATE_AT':
+      return {
+        ...state,
+        cartCreatedAt: new Date(),
+      };
+    case 'REMOVE_CART_CREATE_AT':
+      return {
+        ...state,
+        cartCreatedAt: null,
       };
     case 'CLEAR_CART':
       return {

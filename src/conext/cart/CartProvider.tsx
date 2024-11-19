@@ -1,5 +1,11 @@
-import { useReducer } from 'react';
-import { addProductToStorage, getProductFromStorage, removeProductStorage } from '../../helper';
+import { useEffect, useReducer } from 'react';
+import {
+  addCartCreateAt,
+  addProductToStorage,
+  getCartCreateAt,
+  getProductFromStorage,
+  removeProductStorage,
+} from '../../helper';
 import { ProductInCart } from '../../interfaces/product.interface';
 import { CartContext } from './CartContext';
 import { cartReducer } from './cartReducer';
@@ -10,27 +16,36 @@ type Props = {
 
 export interface CartState {
   products: ProductInCart[];
+  cartCreatedAt: Date | null;
 }
 
 const INITIAL_STATE: CartState = {
   products: [],
+  cartCreatedAt: null,
 };
 
 const init = (): CartState => {
   const products = getProductFromStorage();
+  const cartCreatedAt = getCartCreateAt();
 
-  return { products };
+  return { products, cartCreatedAt: cartCreatedAt ? new Date(cartCreatedAt) : null };
 };
 
 export const CartProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE, init);
 
-  // useEffect(() => {
-  //   addProductToStorageV2(state.products);
-  // }, [state.products]);
+  useEffect(() => {
+    if (state.products.length) return;
+    dispatch({ type: 'REMOVE_CART_CREATE_AT' });
+  }, [state.products]);
 
   const addToCart = (product: ProductInCart) => {
     dispatch({ type: 'ADD_TO_CART', payload: product });
+
+    if (!state.cartCreatedAt) {
+      dispatch({ type: 'CART_CREATE_AT' });
+      addCartCreateAt();
+    }
     addProductToStorage(product);
   };
 

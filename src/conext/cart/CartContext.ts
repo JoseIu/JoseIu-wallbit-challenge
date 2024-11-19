@@ -3,6 +3,7 @@ import { ProductInCart } from '../../interfaces/product.interface';
 
 interface CartContextProps {
   products: ProductInCart[];
+  cartCreatedAt: Date | null;
   addToCart: (product: ProductInCart) => void;
   removeProduct: (id: number) => void;
   getTotalPrice: () => number;

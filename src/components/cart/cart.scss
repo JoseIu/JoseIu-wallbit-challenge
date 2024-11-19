@@ -4,7 +4,13 @@
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
   &__title {
     font-size: 1.5em;
     font-weight: 400;
@@ -12,6 +18,13 @@
     display: flex;
     align-items: center;
     gap: 0.3rem;
+  }
+  &__create-at {
+    font-size: 0.875rem;
+    color: var(--seconday-color);
+  }
+  &__empty-message {
+    font-size: 1.25rem;
   }
   &__icon {
     width: 1.875rem;
@@ -26,10 +39,15 @@
     color: var(--bg-color-dark);
     border: 0.0625rem solid var(--border-color);
   }
-  &__products {
+  &__total-products {
     font-weight: 300;
     border-radius: 1rem;
     color: var(--seconday-color);
     font-size: 0.9375em;
+  }
+  &__sumary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

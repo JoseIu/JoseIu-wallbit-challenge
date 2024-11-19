@@ -1,6 +1,7 @@
 import { ProductInCart } from '../interfaces/product.interface';
 
 const CART_KEY = 'cart';
+const CART_CREATED_AT_KEY = 'cartCreatedAt';
 
 export const getProductFromStorage = () => {
   const products = JSON.parse(localStorage.getItem(CART_KEY) || '[]') as ProductInCart[];
@@ -25,10 +26,6 @@ export const addProductToStorage = (product: ProductInCart) => {
 
   localStorage.setItem(CART_KEY, JSON.stringify([...products, product]));
 };
-export const addProductToStorageV2 = (state: ProductInCart[]) => {
-  localStorage.removeItem(CART_KEY);
-  localStorage.setItem(CART_KEY, JSON.stringify(state));
-};
 
 export const removeProductStorage = (id: number) => {
   const products = getProductFromStorage();
@@ -36,4 +33,18 @@ export const removeProductStorage = (id: number) => {
   const productsFilteres = products.filter((product) => product.product.id !== id);
 
   localStorage.setItem(CART_KEY, JSON.stringify(productsFilteres));
+};
+
+export const addCartCreateAt = () => {
+  localStorage.setItem(CART_CREATED_AT_KEY, new Date().toISOString());
+};
+
+export const removeCartCreateAt = () => {
+  localStorage.removeItem(CART_CREATED_AT_KEY);
+};
+
+export const getCartCreateAt = () => {
+  const cartCreatedAt = localStorage.getItem(CART_CREATED_AT_KEY);
+
+  return cartCreatedAt ? new Date(cartCreatedAt) : null;
 };

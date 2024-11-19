@@ -1,0 +1,12 @@
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  &__btn {
+    cursor: pointer;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
